@@ -16,5 +16,13 @@
         Make sure to learn about callPackage
       '';
     };
+    nixosConfig = {
+      path = ./nixosConfig;
+      description = "A decent nixos starter config";
+      welcomeText = ''
+        Welcome to NixOS...
+        We swear it isn't a cult!
+      '';
+    };
   };
 }
