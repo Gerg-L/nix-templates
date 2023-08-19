@@ -9,5 +9,12 @@
         '';
       };
     };
+    singlePackage = {
+      path = ./simplePackage;
+      description = "As simple as packages get";
+      welcomeText = ''
+        Make sure to learn about callPackage
+      '';
+    };
   };
 }
