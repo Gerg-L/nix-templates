@@ -24,5 +24,12 @@
         We swear it isn't a cult!
       '';
     };
+    homeManager = {
+      path = ./homeManager;
+      description = "meh";
+      welcomeText = ''
+        homeManager bad, or maybe I'm just salty
+      '';
+    };
   };
 }
