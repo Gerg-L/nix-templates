@@ -117,7 +117,7 @@
 
     settings = {
       # Ignore global registry
-      flake-registry = builtins.toFile "empty-flake-registry.json" ''{"flakes":[],"version":2}'';
+      flake-registry = "";
 
       # Enable flakes and the "nix" command
       experimental-features = [
