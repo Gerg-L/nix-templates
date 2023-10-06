@@ -108,11 +108,23 @@
   };
 
   ## Nix settings
-  nix = {
-    # Pin nixpkgs in the flake registry and $NIX_PATH to your system flakes nixpkgs
-    nixPath = ["nixpkgs=flake:nixpkgs"];
-    registry.nixpkgs.flake = inputs.nixpkgs;
 
+  # Pin nixpkgs and add "self" to the flake registry
+  nix.registry = {
+    nixpkgs.flake = inputs.nixpkgs;
+    self.flake = inputs.self;
+  };
+
+  # Set $NIX_PATH to find anything under "/etc/nix/path"
+  nix.nixPath = ["/etc/nix/path"];
+
+  # Link nixpkgs and "self" so they can will be added to $NIX_PATH
+  environment.etc = {
+    "nix/path/nixpkgs".source = inputs.nixpkgs;
+    "nix/path/self".source = inputs.self;
+  };
+
+  nix = {
     settings = {
       # Ignore global registry
       flake-registry = "";
@@ -130,8 +142,6 @@
 
   ## Environment
   environment = {
-    # Backup the currently active configuration in /etc/current-config
-    etc."current-config".source = inputs.self.outPath;
     # Remove all default packges
     defaultPackages = lib.mkForce [];
     # Add packages system-wide
