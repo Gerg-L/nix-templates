@@ -11,7 +11,8 @@
     nixpkgs,
     ...
   }: {
-    homeConfigurations."USERNAME" = home-manager.lib.homeManagerConfiguration {
+    ################## Fix me ##################
+    homeConfigurations."$USER" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
         ./home.nix
