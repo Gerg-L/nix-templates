@@ -55,12 +55,17 @@
   nixpkgs = {
     #The system to build this configuration for
     hostPlatform = "x86_64-linux";
-    config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        # Add unfree packages you would like to allow here.
-        # for example:
-        "hello-unfree"
-      ];
+    config = {
+    /*
+      # Allow unfree packages individually by name
+      allowUnfreePredicate = pkg:
+        builtins.elem (lib.getName pkg) [
+          "hello-unfree"
+        ];
+      # or allow all unfree packages
+      allowUnfree = true;
+     */
+    };
   };
 
   ## Networking
