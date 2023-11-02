@@ -1,16 +1,16 @@
 {
   outputs = _: {
     templates = {
-      simpleDevShell = {
-        path = ./simpleDevShell;
+      devShell = {
+        path = ./devShell;
         description = "As simple as devShell's get";
         welcomeText = ''
           If you haven't already install direnv!
         '';
       };
     };
-    singlePackage = {
-      path = ./simplePackage;
+    package = {
+      path = ./package;
       description = "As simple as packages get";
       welcomeText = ''
         Make sure to learn about callPackage
@@ -22,13 +22,6 @@
       welcomeText = ''
         Welcome to NixOS...
         We swear it isn't a cult!
-      '';
-    };
-    homeManager = {
-      path = ./homeManager;
-      description = "meh";
-      welcomeText = ''
-        homeManager bad, or maybe I'm just salty
       '';
     };
   };
