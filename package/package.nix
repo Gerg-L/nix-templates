@@ -22,7 +22,7 @@ stdenv.mkDerivation (
       homepage = "https://www.gnu.org/software/hello/manual/";
       changelog = "https://git.savannah.gnu.org/cgit/hello.git/plain/NEWS?h=v${finalAttrs.version}";
       license = lib.licenses.gpl3Plus;
-      maintainers = [ lib.maintainers.eelco ];
+      maintainers = [lib.maintainers.eelco];
       platforms = lib.platforms.all;
     };
   }
