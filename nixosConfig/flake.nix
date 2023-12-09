@@ -3,6 +3,7 @@
     /* Declare your nixpkgs input
        here's three options, from most verbose to least verbose
     */
+
     # nixpkgs = {
     #   type = "github";
     #   owner = "NixOS";
@@ -11,9 +12,13 @@
     # };
     # nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    /* More information on flake references:
+       https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#flake-references
+    */
   };
   outputs =
-    { nixpkgs, ... }:
+    {nixpkgs, ...}:
     {
       nixosConfigurations = {
         /* Create a host
