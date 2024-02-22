@@ -18,18 +18,17 @@
     */
   };
   outputs =
-    {nixpkgs, ...}:
+    { nixpkgs, ... }:
     {
       nixosConfigurations = {
         /* Create a host
            the name here should be the same as networking.hostName
         */
         hostname = nixpkgs.lib.nixosSystem {
-          modules =
-            [
-              # Add your existing configuration entry point here
-              ./configuration.nix
-            ];
+          modules = [
+            # Add your existing configuration entry point here
+            ./configuration.nix
+          ];
           # You probably want to pass inputs to your modules
           # https://blog.nobbz.dev/2022-12-12-getting-inputs-to-modules-in-a-flake/
         };
